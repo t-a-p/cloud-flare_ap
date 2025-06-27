@@ -1,0 +1,6 @@
+name = "ping-worker"
+main = "worker.js"
+compatibility_date = "2025-06-27"
+
+# Remove or comment this line if it exists:
+# assets = { directory = "./dist" }
