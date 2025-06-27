@@ -1,10 +1,7 @@
 export default {
   async fetch(request, env, ctx) {
     const urlsToPing = [
-      "https://example.com",
-      "https://httpbin.org/get",
-      "https://api.ipify.org?format=json",
-      "https://jsonplaceholder.typicode.com/posts/1"
+      "https://a00c8698-adc3-453a-a1c8-0c7c37438995-00-1qcy8wlc98rso.sisko.replit.dev:3001"
     ];
 
     const results = await Promise.all(
