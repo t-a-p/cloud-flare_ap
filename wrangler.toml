@@ -2,5 +2,7 @@ name = "ping-worker"
 main = "worker.js"
 compatibility_date = "2025-06-27"
 
+triggers = { crons = ["* * * * *"] }
+
 # Remove or comment this line if it exists:
 # assets = { directory = "./dist" }
