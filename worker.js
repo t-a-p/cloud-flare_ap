@@ -1,15 +1,23 @@
-
 export default {
   async fetch(request, env, ctx) {
-    const urlToPing = "https://www.google.com";
+    const urlsToPing = [
+      "https://example.com",
+      "https://httpbin.org/get",
+      "https://api.ipify.org?format=json",
+      "https://jsonplaceholder.typicode.com/posts/1"
+    ];
 
-    try {
-      const res = await fetch(urlToPing);
-      const status = res.status;
-      return new Response(`✅ Pinged ${urlToPing}, status: ${status}`, { status: 200 });
-    } catch (err) {
-      console.error(`❌ Error:`, err);
-      return new Response(`❌ Failed to ping ${urlToPing}: ${err.message}`, { status: 500 });
-    }
+    const results = await Promise.all(
+      urlsToPing.map(async (url) => {
+        try {
+          const res = await fetch(url);
+          return `✅ ${url} → ${res.status}`;
+        } catch (err) {
+          return `❌ ${url} → Error: ${err.message}`;
+        }
+      })
+    );
+
+    return new Response(results.join("\n"), { status: 200 });
   }
 };
