@@ -1,4 +1,4 @@
-name = "ping-worker"
+name = "cloud"
 main = "worker.js"
 compatibility_date = "2025-06-27"
 
